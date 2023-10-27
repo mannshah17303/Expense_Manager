@@ -1,0 +1,31 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Log out";
+}
+
+<header>
+    <h1>@ViewData["Title"]</h1>
+    @{
+        if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" method="post">
+                <button type="submit" class="nav-link btn btn-danger">Click here to Logout</button>
+            </form>
+        }
+        else
+        {
+            <p>You have successfully logged out of the application.</p>
+        }
+    }
+</header>
+<style>
+    /* Add custom styles for the logout button */
+    .btn-danger {
+        background-color: #ff0000; /* Red background color */
+        color: #fff; /* White text color */
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+</style>
